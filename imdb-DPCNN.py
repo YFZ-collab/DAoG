@@ -153,7 +153,7 @@ class DoG(optimizers.Optimizer):
 
       tf.cond(
           condition,
-          #lambda: K.update(m, 1e-4*(tf.norm(ini)+1)),
+          #lambda: K.update(m, 1e-6*(tf.norm(ini)+1)),
           lambda: K.update(m, 1e-1*(tf.norm(ini)+1)),
           lambda: K.update(m, tf.maximum(m, tf.norm(var - ini))),
       )
@@ -440,4 +440,5 @@ plt.legend()
 plt.grid(True)
 
 plt.tight_layout()
+
 plt.show()
